@@ -1,51 +1,8 @@
 import React from "react";
 import Layout from "./../components/Layout";
 import tw from "twin.macro";
+import players from "../../static/data";
 
-const sampleStats = [
-  { name: "Pts", value: 25.0 },
-  { name: "Reb", value: 5.2 },
-  { name: "Ast", value: 4.7 },
-];
-
-const playerMike = {
-  id: 0,
-  name: "Mike",
-  imgSrc:
-    "https://www.basketball-reference.com/req/202010061/images/players/jordami01.jpg",
-  stats: [
-    { name: "Pts", value: 30.1 },
-    { name: "Reb", value: 6.2 },
-    { name: "Ast", value: 5.3 },
-  ],
-};
-
-const playerKobe = {
-  id: 1,
-  name: "Kobe",
-  imgSrc:
-    "https://www.basketball-reference.com/req/202010061/images/players/bryanko01.jpg",
-
-  stats: [
-    { name: "Pts", value: 25.0 },
-    { name: "Reb", value: 5.2 },
-    { name: "Ast", value: 4.7 },
-  ],
-};
-
-const playerBron = {
-  id: 2,
-  name: "Bron",
-  imgSrc:
-    "https://www.basketball-reference.com/req/202010061/images/players/jamesle01.jpg",
-  stats: [
-    { name: "Pts", value: 27.1 },
-    { name: "Reb", value: 7.4 },
-    { name: "Ast", value: 7.4 },
-  ],
-};
-
-const players = [playerMike, playerKobe, playerBron];
 
 const Card = props => (
   <div tw="w-full bg-green-200 px-4 py-4 flex flex-col items-center space-y-4">
