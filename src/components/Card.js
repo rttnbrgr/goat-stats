@@ -39,7 +39,10 @@ const mockMoreStats = [
   { name: "Stat 9", value: 5.3 },
 ];
 
-const StatRow = styled.div(({ active }) => [tw`flex justify-between`]);
+const StatRow = styled.div(({ active }) => [
+  tw`flex justify-between flex-col`,
+  active && tw`flex-row`,
+]);
 
 const StatNumber = tw.span`font-mono text-xl`;
 const StatTitle = tw.h3`font-bold  text-sm uppercase`;
@@ -57,19 +60,19 @@ const Card = ({ name, imageSrc, stats, active, onClick }) => (
       <h2>{name}</h2>
       <div tw="flex justify-between border border-solid border-black w-full">
         {stats.map((x, i) => (
-          <div tw="flex flex-1 flex-col text-center" key={i}>
-            <h3 tw="font-bold text-sm uppercase">{x.name}</h3>
-            <span tw="font-mono text-xl">{x.value}</span>
-          </div>
+          <StatRow key={i}>
+            <StatTitle>{x.name}</StatTitle>
+            <StatNumber>{x.value}</StatNumber>
+          </StatRow>
         ))}
       </div>
       {active && (
         <div tw="w-full">
           {mockMoreStats.map((stat, j) => (
-            <div tw="flex flex-1 justify-between text-center" key={j}>
-              <h3 tw="font-bold text-sm uppercase">{stat.name}</h3>
-              <span tw="font-mono text-xl">{stat.value}</span>
-            </div>
+            <StatRow key={j} active={active}>
+              <StatTitle>{stat.name}</StatTitle>
+              <StatNumber>{stat.value}</StatNumber>
+            </StatRow>
           ))}
         </div>
       )}
