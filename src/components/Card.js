@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import tw, { styled } from "twin.macro";
+import StatRow from "./Stat";
 
 const Wrapper = styled.div(({ active }) => [
   tw`px-4 py-2 bg-pink-300 w-full flex relative z-10`,
@@ -43,32 +44,6 @@ const mockMoreStats = [
   { id: 8, name: "Stat 8", value: 6.2 },
   { id: 9, name: "Stat 9", value: 5.3 },
 ];
-
-const StyledStatRow = styled.div(({ active, hidden }) => [
-  tw`flex justify-between flex-col items-center`,
-  active && tw`flex-row items-center`,
-  hidden && tw`text-gray-400`,
-]);
-
-const StatNumber = tw.span`font-mono text-xl`;
-const StatTitle = tw.h3`font-bold  text-sm uppercase flex-1`;
-
-const StatRow = ({ active, stat, toggleVisibility, hidden }) => {
-  return (
-    <StyledStatRow active={active} hidden={hidden}>
-      {active && (
-        <div
-          tw="bg-green-500 p-2 flex-initial"
-          onClick={e => toggleVisibility(stat, e)}
-        >
-          eye
-        </div>
-      )}
-      <StatTitle>{stat.name}</StatTitle>
-      <StatNumber>{stat.value}</StatNumber>
-    </StyledStatRow>
-  );
-};
 
 const Card = ({ name, imageSrc, stats, active, onClick }) => {
   const [statVisibility, setStatVisibility] = useState([]);
@@ -165,7 +140,6 @@ const Card = ({ name, imageSrc, stats, active, onClick }) => {
                 ))}
               </div>
             )}
-            {false && statVisibility.map((x, i) => <h2>{x}</h2>)}
             {statVisibility}
           </div>
         )}
@@ -186,30 +160,3 @@ Card.propTypes = {
 };
 
 export default Card;
-
-/*
-import React from "react";
-import tw, { styled } from "twin.macro";
-import { Layout, Button, Logo } from "./../components";
-
-const NavBtn = styled.a(() => [tw`bg-red-500 text-blue-500`])
-
-const App = () => (
-  <Layout
-    css={[
-      tw`flex flex-col items-center justify-center h-screen`,
-      tw`bg-gradient-to-b from-electric to-ribbon`,
-    ]}
-  >
-    <div tw="flex flex-col justify-center h-full space-y-5">
-      <Button isPrimary>Send</Button>
-      <Button isSecondary>Cancel</Button>
-      <Button isSmall>Close</Button>
-    </div>
-    <NavBtn>asd</NavBtn>
-    <Logo />
-  </Layout>
-);
-
-export default App;
-*/
