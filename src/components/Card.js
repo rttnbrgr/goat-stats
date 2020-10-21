@@ -72,23 +72,35 @@ const StatRow = ({ active, stat, toggleVisibility, hidden }) => {
 
 const Card = ({ name, imageSrc, stats, active, onClick }) => {
   const [statVisibility, setStatVisibility] = useState([]);
+  const [hiddenStatsVisibility, setHiddenStatsVisibility] = useState(true);
 
-  const toggleStatVisibility = (name, e) => {
+  const toggleStatVisibility = (stat, e) => {
     // prevent event bubbling
     // console.log("toggle visibility", name, e);
     e.stopPropagation();
 
-    // build new array
     console.log("statVisibility", statVisibility);
-    const newStats = [...statVisibility, name.id];
+    // check if the stat exists, if it does, remove it
+    const isStatHidden =
+      !!statVisibility.length && statVisibility.includes(stat.id);
+    console.log(`isStatHidden? ${isStatHidden}`);
+
+    if (isStatHidden) {
+      const newStats = statVisibility.filter(x => x !== stat.id);
+      setStatVisibility(newStats);
+      return;
+    }
+
+    // build new array
+    const newStats = [...statVisibility, stat.id];
     setStatVisibility(newStats);
     console.log("statVisibility: after", statVisibility);
   };
 
   const shouldHideStat = stat => {
-    console.log("shoudl show stat");
+    // console.log("shoudl show stat");
     const statIsHidden = statVisibility.find(x => {
-      console.log(`Stat: ${stat} : ID: ${stat.id} : x: ${x}`);
+      // console.log(`Stat: ${stat} : ID: ${stat.id} : x: ${x}`);
       return x === stat.id;
     });
     return statIsHidden;
@@ -130,15 +142,29 @@ const Card = ({ name, imageSrc, stats, active, onClick }) => {
               />
             ))}
             <hr />
-            {mockMoreStats.filter(shouldHideStat).map((stat, j) => (
-              <StatRow
-                key={j}
-                active={active}
-                stat={stat}
-                toggleVisibility={toggleStatVisibility}
-                hidden
-              />
-            ))}
+
+            <div
+              onClick={e => {
+                e.stopPropagation();
+                setHiddenStatsVisibility(!hiddenStatsVisibility);
+              }}
+            >
+              {hiddenStatsVisibility ? "Show Hidden Stas" : "Collapse"}
+            </div>
+
+            {!hiddenStatsVisibility && (
+              <div>
+                {mockMoreStats.filter(shouldHideStat).map((stat, j) => (
+                  <StatRow
+                    key={j}
+                    active={active}
+                    stat={stat}
+                    toggleVisibility={toggleStatVisibility}
+                    hidden
+                  />
+                ))}
+              </div>
+            )}
             {false && statVisibility.map((x, i) => <h2>{x}</h2>)}
             {statVisibility}
           </div>
