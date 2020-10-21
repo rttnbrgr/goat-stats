@@ -52,7 +52,6 @@ class Home extends React.Component {
         <Wrapper>
           {/* {players.slice(0, 1).map(({ name, imgSrc, stats, id }) => ( */}
           {players.map(({ name, imgSrc, stats, id }, index) => {
-            console.log("playersmap: index", index);
             return (
               <Card
                 name={name}
