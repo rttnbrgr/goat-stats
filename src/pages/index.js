@@ -1,5 +1,11 @@
-import React from "react"
+import React from "react";
+import Layout from "./../components/Layout";
+import tw from "twin.macro";
 
-export default function Home() {
-  return <div>Hello world!</div>
-}
+const Home = () => (
+  <Layout>
+    <div tw="h-24 bg-red-500">Hello world!</div>
+  </Layout>
+);
+
+export default Home;
