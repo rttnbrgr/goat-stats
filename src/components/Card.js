@@ -41,20 +41,6 @@ const StatWrapper = styled.div(({ active }) => [
   `,
 ]);
 
-// STATS
-
-const mockMoreStats = [
-  { id: 1, name: "PTS", value: 30.1 },
-  { id: 2, name: "AST", value: 6.2 },
-  { id: 3, name: "REB", value: 5.3 },
-  { id: 4, name: "Stat 4", value: 30.1 },
-  { id: 5, name: "Stat 5", value: 6.2 },
-  { id: 6, name: "Stat 6", value: 5.3 },
-  { id: 7, name: "Stat 7", value: 30.1 },
-  { id: 8, name: "Stat 8", value: 6.2 },
-  { id: 9, name: "Stat 9", value: 5.3 },
-];
-
 const Card = ({
   name,
   imageSrc,
@@ -66,44 +52,7 @@ const Card = ({
   toggleStat,
   editStatOrder,
 }) => {
-  const [statVisibility, setStatVisibility] = useState([]);
   const [hiddenStatsVisibility, setHiddenStatsVisibility] = useState(true);
-
-  const toggleStatVisibilityOld = (stat, e) => {
-    // prevent event bubbling
-    // console.log("toggle visibility", name, e);
-    e.stopPropagation();
-
-    console.log("statVisibility", statVisibility);
-    // check if the stat exists, if it does, remove it
-    const isStatHidden =
-      !!statVisibility.length && statVisibility.includes(stat.id);
-    console.log(`isStatHidden? ${isStatHidden}`);
-
-    if (isStatHidden) {
-      const newStats = statVisibility.filter(x => x !== stat.id);
-      setStatVisibility(newStats);
-      return;
-    }
-
-    // build new array
-    const newStats = [...statVisibility, stat.id];
-    setStatVisibility(newStats);
-    console.log("statVisibility: after", statVisibility);
-  };
-
-  const shouldHideStat = stat => {
-    // console.log("shoudl show stat");
-    const statIsHidden = statVisibility.find(x => {
-      // console.log(`Stat: ${stat} : ID: ${stat.id} : x: ${x}`);
-      return x === stat.id;
-    });
-    return statIsHidden;
-  };
-
-  const shouldShowStat = stat => {
-    return !shouldHideStat(stat);
-  };
 
   return (
     <Wrapper active={active} onClick={onClick}>
