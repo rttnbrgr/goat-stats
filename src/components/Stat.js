@@ -39,8 +39,8 @@ const StatRow = ({
           {hidden ? <RiEyeCloseLine /> : <RiEyeLine />}
         </StatIcon>
       )}
-      <StatTitle>{stat.name}</StatTitle>
-      <StatNumber>{stat.value}</StatNumber>
+      <StatTitle>{name ? name : stat.name}</StatTitle>
+      <StatNumber>{value ? value : stat.value}</StatNumber>
       {active && (
         <>
           <StatIcon onClick={e => editOrder(e, statId, "up")}>
