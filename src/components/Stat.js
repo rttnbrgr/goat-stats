@@ -21,11 +21,17 @@ const StatNumber = tw.span`font-mono text-xl`;
 const StatTitle = tw.h3`font-bold  text-sm uppercase flex-1`;
 const StatIcon = tw.div`p-2 flex-initial`;
 
-const StatRow = ({ active, stat, toggleVisibility, hidden }) => {
-  const toggleFoo = e => {
-    e.stopPropagation();
-    console.log("foo");
-  };
+const StatRow = ({
+  active,
+  stat,
+  statId,
+  toggleVisibility,
+  hidden,
+  getStatById,
+  value,
+  name,
+  editOrder,
+}) => {
   return (
     <StyledStatRow active={active} hidden={hidden}>
       {active && (

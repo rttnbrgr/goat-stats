@@ -54,11 +54,21 @@ const mockMoreStats = [
   { id: 9, name: "Stat 9", value: 5.3 },
 ];
 
-const Card = ({ name, imageSrc, stats, active, onClick }) => {
+const Card = ({
+  name,
+  imageSrc,
+  stats,
+  active,
+  onClick,
+  masterStats,
+  getStatById,
+  toggleStat,
+  editStatOrder,
+}) => {
   const [statVisibility, setStatVisibility] = useState([]);
   const [hiddenStatsVisibility, setHiddenStatsVisibility] = useState(true);
 
-  const toggleStatVisibility = (stat, e) => {
+  const toggleStatVisibilityOld = (stat, e) => {
     // prevent event bubbling
     // console.log("toggle visibility", name, e);
     e.stopPropagation();

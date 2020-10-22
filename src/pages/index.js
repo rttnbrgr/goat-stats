@@ -131,6 +131,10 @@ function Home() {
               key={id}
               active={activeCard === index}
               onClick={() => cardClick(index)}
+              masterStats={masterStats}
+              getStatById={getStatById}
+              toggleStat={toggleStatVisibility}
+              editStatOrder={editStatOrder}
             />
           );
         })}
