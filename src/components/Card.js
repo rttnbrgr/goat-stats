@@ -136,18 +136,6 @@ const Card = ({
         {active && (
           <div tw="w-full">
             <hr />
-            {false &&
-              mockMoreStats
-                .filter(shouldShowStat)
-                .map((stat, j) => (
-                  <StatRow
-                    key={j}
-                    active={active}
-                    stat={stat}
-                    toggleVisibility={toggleStatVisibilityOld}
-                  />
-                ))}
-            <hr />
 
             <div
               onClick={e => {
@@ -183,21 +171,6 @@ const Card = ({
                   })}
               </>
             )}
-
-            {!hiddenStatsVisibility && false && (
-              <div>
-                {mockMoreStats.filter(shouldHideStat).map((stat, j) => (
-                  <StatRow
-                    key={j}
-                    active={active}
-                    stat={stat}
-                    toggleVisibility={toggleStatVisibilityOld}
-                    hidden
-                  />
-                ))}
-              </div>
-            )}
-            {statVisibility}
           </div>
         )}
       </StyledCard>
