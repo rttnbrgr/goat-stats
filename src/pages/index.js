@@ -27,54 +27,21 @@ function Home() {
   };
 
   const toggleStatVisibility = (stat, e) => {
-    // prevent event bubbling
-    console.log("toggle visibility: event", e);
-    console.log("toggle visibility: stat", stat);
     e.stopPropagation();
-
-    // const matchingStat = getStatById(stat.id);
-    console.log("build a new array");
-    console.log("=================");
+    // build new array
     const newStatisticMaster = statisticMaster.map(x => {
+      // fiind the match
       const isMatch = stat.id === x.id;
       if (isMatch) {
-        console.log("match: ", x);
+        // change its visibility setting;
+        // consider moving it to a new array to handle hidden stats
         x.visible = !x.visible;
-        console.log("match after: ", x);
         return x;
       }
-      console.log("no match: ", x);
+      // if no match
       return x;
-
-      // x.id ===
-      // if not a match, return key
-      // if match,
-      // toggle visibility
-      // return
     });
-
     setMasterStats(newStatisticMaster);
-
-    // setMasterStats(prevStats => prevStats.find(x => x.id === stat.id).)
-    /*
-
-    console.log("statVisibility", statVisibility);
-    // check if the stat exists, if it does, remove it
-    const isStatHidden =
-      !!statVisibility.length && statVisibility.includes(stat.id);
-    console.log(`isStatHidden? ${isStatHidden}`);
-
-    if (isStatHidden) {
-      const newStats = statVisibility.filter(x => x !== stat.id);
-      setStatVisibility(newStats);
-      return;
-    }
-
-    // build new array
-    const newStats = [...statVisibility, stat.id];
-    setStatVisibility(newStats);
-    console.log("statVisibility: after", statVisibility);
-    */
   };
 
   const editStatOrder = (e, statId, direction) => {
