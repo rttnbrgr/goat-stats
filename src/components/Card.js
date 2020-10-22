@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import tw, { styled } from "twin.macro";
-import StatRow from "./Stat";
+import StatRow, { StatWrapper } from "./Stat";
 import CardHeader from "./CardHeader";
 
 const Wrapper = styled.div(({ active }) => [
@@ -16,7 +16,6 @@ const Wrapper = styled.div(({ active }) => [
   position: absolute;
   top: 48px;
   height: calc(100vh - 48px);
-  
   `,
 ]);
 
@@ -25,20 +24,9 @@ const StyledCard = styled.div(({ active }) => [
   `
   transition: all .3s ease;
   flex: 0 0 100%;
-  
   `,
-  // active && tw`h-full`,
   active && `transition: all 3s`,
   ,
-]);
-
-const StatWrapper = styled.div(({ active }) => [
-  tw`flex justify-between border border-solid border-black w-full overflow-hidden`,
-  active && tw`block border-none`,
-  active &&
-    `
-  background: white;
-  `,
 ]);
 
 const Card = ({

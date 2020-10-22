@@ -8,6 +8,15 @@ import {
   RiArrowDownLine,
 } from "react-icons/ri";
 
+export const StatWrapper = styled.div(({ active }) => [
+  tw`flex justify-between border border-solid border-black w-full overflow-hidden`,
+  active && tw`block border-none`,
+  active &&
+    `
+  background: white;
+  `,
+]);
+
 const StyledStatRow = styled.div(({ active, hidden }) => [
   tw`flex justify-between flex-col items-center`,
   `
