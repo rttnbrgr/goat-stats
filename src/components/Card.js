@@ -115,26 +115,44 @@ const Card = ({
           }}
         ></div>
         <h2>{name}</h2>
-        <div tw="flex justify-between border border-solid border-black w-full">
-          {stats.map((x, i) => (
-            <StatRow
-              key={i}
-              active={false}
-              stat={x}
-              toggleVisibility={toggleStatVisibility}
-            />
-          ))}
-        </div>
+        <StatWrapper active={active}>
+          {masterStats
+            .filter(x => x.visible)
+            .map((mStat, j) => {
+              const matchedStat = stats.find(x => x.id === mStat.id);
+              if (!matchedStat) {
+                console.error("no matched stat for", mStat, "player: ", name);
+                return null;
+              }
+              return (
+                <StatRow
+                  key={j}
+                  active={active}
+                  stat={matchedStat}
+                  statId={mStat.id}
+                  name={mStat.name}
+                  value={matchedStat.value}
+                  toggleVisibility={toggleStat}
+                  editOrder={editStatOrder}
+                />
+              );
+            })}
+        </StatWrapper>
+
         {active && (
           <div tw="w-full">
-            {mockMoreStats.filter(shouldShowStat).map((stat, j) => (
-              <StatRow
-                key={j}
-                active={active}
-                stat={stat}
-                toggleVisibility={toggleStatVisibility}
-              />
-            ))}
+            <hr />
+            {false &&
+              mockMoreStats
+                .filter(shouldShowStat)
+                .map((stat, j) => (
+                  <StatRow
+                    key={j}
+                    active={active}
+                    stat={stat}
+                    toggleVisibility={toggleStatVisibilityOld}
+                  />
+                ))}
             <hr />
 
             <div
@@ -147,13 +165,39 @@ const Card = ({
             </div>
 
             {!hiddenStatsVisibility && (
+              <>
+                {masterStats
+                  .filter(x => !x.visible)
+                  .map((mStat, j) => {
+                    const matchedStat = stats.find(x => x.id === mStat.id);
+                    if (!matchedStat) {
+                      console.error("no matched stat");
+                      return null;
+                    }
+                    return (
+                      <StatRow
+                        key={j}
+                        active={active}
+                        stat={matchedStat}
+                        statId={mStat.id}
+                        name={mStat.name}
+                        value={matchedStat.value}
+                        toggleVisibility={toggleStat}
+                        editOrder={editStatOrder}
+                      />
+                    );
+                  })}
+              </>
+            )}
+
+            {!hiddenStatsVisibility && false && (
               <div>
                 {mockMoreStats.filter(shouldHideStat).map((stat, j) => (
                   <StatRow
                     key={j}
                     active={active}
                     stat={stat}
-                    toggleVisibility={toggleStatVisibility}
+                    toggleVisibility={toggleStatVisibilityOld}
                     hidden
                   />
                 ))}
