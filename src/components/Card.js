@@ -43,9 +43,9 @@ const StatWrapper = styled.div(({ active }) => [
 // STATS
 
 const mockMoreStats = [
-  { id: 1, name: "Stat 1", value: 30.1 },
-  { id: 2, name: "Stat 2", value: 6.2 },
-  { id: 3, name: "Stat 3", value: 5.3 },
+  { id: 1, name: "PTS", value: 30.1 },
+  { id: 2, name: "AST", value: 6.2 },
+  { id: 3, name: "REB", value: 5.3 },
   { id: 4, name: "Stat 4", value: 30.1 },
   { id: 5, name: "Stat 5", value: 6.2 },
   { id: 6, name: "Stat 6", value: 5.3 },
