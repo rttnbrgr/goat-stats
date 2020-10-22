@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import tw, { styled } from "twin.macro";
 import StatRow from "./Stat";
+import CardHeader from "./CardHeader";
 
 const Wrapper = styled.div(({ active }) => [
   tw`px-4 py-2 bg-pink-300 w-full flex relative z-10`,
@@ -107,14 +108,7 @@ const Card = ({
   return (
     <Wrapper active={active} onClick={onClick}>
       <StyledCard active={active}>
-        <div
-          tw="w-32 h-32 rounded-full border-2 border-solid border-black"
-          css={{
-            backgroundSize: "cover",
-            backgroundImage: `url(${imageSrc})`,
-          }}
-        ></div>
-        <h2>{name}</h2>
+        <CardHeader imageSrc={imageSrc} name={name} />
         <StatWrapper active={active}>
           {masterStats
             .filter(x => x.visible)
