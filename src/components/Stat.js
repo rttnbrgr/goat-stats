@@ -10,6 +10,9 @@ import {
 
 const StyledStatRow = styled.div(({ active, hidden }) => [
   tw`flex justify-between flex-col items-center`,
+  `
+  flex: 0 0 33%;
+  `,
   active && tw`flex-row items-center`,
   hidden && tw`text-gray-400`,
 ]);

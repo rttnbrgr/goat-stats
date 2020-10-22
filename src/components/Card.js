@@ -6,7 +6,7 @@ import StatRow from "./Stat";
 const Wrapper = styled.div(({ active }) => [
   tw`px-4 py-2 bg-pink-300 w-full flex relative z-10`,
   `
-  height: calc((100vh - 3rem)/ 3);
+  height: calc((100vh - 3rem)/ 1);
   transition: all .3s ease;
   `,
   active && tw`w-screen h-screen top-0 left-0 pb-4 bg-pink-500 z-20`,
@@ -29,6 +29,15 @@ const StyledCard = styled.div(({ active }) => [
   // active && tw`h-full`,
   active && `transition: all 3s`,
   ,
+]);
+
+const StatWrapper = styled.div(({ active }) => [
+  tw`flex justify-between border border-solid border-black w-full overflow-hidden`,
+  active && tw`block border-none`,
+  active &&
+    `
+  background: white;
+  `,
 ]);
 
 // STATS
