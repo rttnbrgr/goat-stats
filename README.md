@@ -2,6 +2,10 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1604edee-4f87-45dc-9231-232c64d37ac9/deploy-status)](https://app.netlify.com/sites/goat-vote/deploys)
 
+## Dev Notes
+
+[Flexbox Overflow](https://stackoverflow.com/questions/21515042/scrolling-a-flexbox-with-overflowing-content)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
