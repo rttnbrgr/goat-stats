@@ -10,6 +10,7 @@ import {
 
 export const StatWrapper = styled.div(({ active }) => [
   tw`flex justify-between border border-solid border-black w-full overflow-hidden`,
+  `flex: 0 0 auto;`,
   active && tw`block border-none`,
   active &&
     `

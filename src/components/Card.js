@@ -5,12 +5,12 @@ import StatRow, { StatWrapper } from "./Stat";
 import CardHeader from "./CardHeader";
 
 const Wrapper = styled.div(({ active }) => [
-  tw`px-4 py-2 bg-pink-300 w-full flex relative z-10`,
+  tw`px-4 py-2 w-full flex relative z-10`,
   `
-  height: calc((100vh - 3rem)/ 1);
+  height: calc((100vh - 3rem)/ 3);
   transition: all .3s ease;
   `,
-  active && tw`w-screen h-screen top-0 left-0 pb-4 bg-pink-500 z-20`,
+  active && tw`w-screen h-screen top-0 left-0 pb-4 z-20`,
   active &&
     `
   position: absolute;
@@ -20,7 +20,7 @@ const Wrapper = styled.div(({ active }) => [
 ]);
 
 const StyledCard = styled.div(({ active }) => [
-  tw`w-full h-full bg-white px-4 py-4 flex flex-col items-center space-y-4 rounded shadow-xl border-solid`,
+  tw`w-full h-full bg-white px-4 py-4 flex flex-col items-center justify-between space-y-4 rounded shadow-xl border-solid`,
   `
   transition: all .3s ease;
   flex: 0 0 100%;

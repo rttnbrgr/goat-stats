@@ -7,6 +7,7 @@ const AppWrapper = styled.div(() => [
   max-width: 500px;
   margin: 0 auto;
 `,
+  tw`bg-gray-200`,
 ]);
 
 const Layout = ({ children }) => (

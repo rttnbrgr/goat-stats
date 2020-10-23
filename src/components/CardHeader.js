@@ -4,16 +4,16 @@ import tw, { styled } from "twin.macro";
 
 const CardHeader = ({ name, imageSrc }) => {
   return (
-    <>
+    <div tw="w-full flex items-center justify-between flex-row-reverse">
       <div
-        tw="w-32 h-32 rounded-full border-2 border-solid border-black"
+        tw="w-16 h-16 rounded-full border-2 border-solid border-black"
         css={{
           backgroundSize: "cover",
           backgroundImage: `url(${imageSrc})`,
         }}
       ></div>
-      <h2>{name}</h2>
-    </>
+      <h2 tw="font-bold text-lg uppercase">{name}</h2>
+    </div>
   );
 };
 
