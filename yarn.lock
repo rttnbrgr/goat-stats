@@ -9714,6 +9714,11 @@ react-dom@^16.12.0:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
+react-easy-flip@^4.0.0-beta.2:
+  version "4.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/react-easy-flip/-/react-easy-flip-4.0.0-beta.2.tgz#b6083a277ec9777deaab47fab73c87f748300c5c"
+  integrity sha512-llnRLRGVc2yYaN44GIEwuCX+QM/DPgMVQMsYrYv3/3fddZvArTtmL3QlBR2ou/rusGEi5MrwK3Oiclcfg9ROJA==
+
 react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
